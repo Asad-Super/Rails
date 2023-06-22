@@ -1,0 +1,30 @@
+<h1>Students Details</h1>
+
+<p> <strong> First Name: </strong> <%=@student.first_name%></p>
+<p> <strong> Last Name: </strong> <%=@student.last_name%></p>
+<p> <strong> Email: </strong> <%=@student.email%></p>
+
+<%=link_to "Back Home " ,students_path  %> |     <td><%=link_to "Edit",edit_student_path(@student)%></td>
+
+
+<h2>ADD A COMMENT </h2>
+<%=form_with model:[@student,@student.comments.build] do |form|%>
+    <%if @student.errors.any?%>
+    <% @student .errors.full_messages.each do|message|%>
+        <p><%=message%></p>
+    <%end%>
+    <%end%>
+    <div>
+    <%=form.label:commenter%><br>
+    <%=form.text_field:commenter%>
+    </div>
+    <div>
+    <%=form.label:commenter%><br>
+    <%=form.text_field:commenter%>
+    </div>
+    <div>
+    <%=form.label:commenter%><br>
+    <%=form.text_field:commenter%>
+    </div>
+    <div>
+    <%=form.submit%>
